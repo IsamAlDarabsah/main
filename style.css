@@ -1254,3 +1254,11 @@ p { margin: 0 0 1.1rem; }
     margin-bottom: 0.7rem;
   }
 }
+
+
+/* Publications: section titles scroll normally; do not pin them. */
+.publications-page .row.cat {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
