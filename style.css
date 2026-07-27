@@ -1188,3 +1188,69 @@ p { margin: 0 0 1.1rem; }
   border-radius: 0 !important;
   box-shadow: none !important;
 }
+
+
+/* ============================================================
+   Research page: pinned section and subsection navigation
+   ============================================================ */
+.research-layout {
+  max-width: 92rem;
+}
+
+.research-rail-inner {
+  padding-top: 4.5rem;
+}
+
+.research-rail-nav .rail-group {
+  border-bottom: 1px solid var(--rule);
+}
+
+.research-rail-nav .rail-group > a {
+  border-bottom: none;
+}
+
+.research-subnav {
+  list-style: none;
+  margin: 0 0 0.55rem;
+  padding: 0 0 0 0.78rem;
+  border-left: 2px solid rgba(46, 106, 87, 0.16);
+}
+
+.research-subnav li {
+  border: 0 !important;
+}
+
+.research-subnav a {
+  display: block;
+  padding: 0.34rem 0.12rem 0.34rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--slate);
+}
+
+.research-rail-nav a.current,
+.research-rail-nav a.current-parent {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.research-subnav a.current {
+  color: var(--viridian);
+}
+
+.research-page #overview,
+.research-page #research-interests,
+.research-page #research-areas,
+.research-page #students,
+.research-page .research-topic {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 77rem) {
+  .research-rail-nav {
+    max-width: 34rem;
+  }
+  .research-subnav {
+    margin-bottom: 0.7rem;
+  }
+}
