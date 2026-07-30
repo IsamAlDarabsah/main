@@ -1262,3 +1262,785 @@ p { margin: 0 0 1.1rem; }
   top: auto !important;
   z-index: auto !important;
 }
+
+
+/* ============================================================
+   Unified typography, dates, and academic-profile links
+   ============================================================ */
+
+:root {
+  --date-accent: #B66A2C; /* warm, muted orange with good contrast */
+  --type-body: 1rem;
+  --type-copy: 0.96rem;
+  --type-meta: 0.76rem;
+  --type-section: 1.5rem;
+  --type-subsection: 1.25rem;
+}
+
+/* One typography system across every page. */
+body {
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+p,
+li,
+span,
+strong {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+.mark,
+.rail-name,
+.topic-title,
+.research-paper-title,
+.pub-title,
+.teaching-summary span {
+  font-family: var(--serif);
+}
+
+.topnav,
+.margin,
+.rail-heading,
+.rail-nav,
+.profile-links,
+.news time,
+.course-code,
+.pub-links,
+.research-paper-links,
+.teaching-summary strong,
+.institution-head p {
+  font-family: var(--mono);
+}
+
+/* Consistent heading scale across About, Research, Publications, and Teaching. */
+h2,
+.cat-head,
+.teaching-section > h2 {
+  font-size: var(--type-section);
+}
+
+h3,
+.topic-title,
+.institution-head h3 {
+  font-size: var(--type-subsection);
+}
+
+/* Consistent main-copy size across page-specific content blocks. */
+.news li,
+.course-copy p,
+.topic-description p,
+.research-paper-list li,
+.publication-paper-list li,
+.pub-authors,
+.pub-venue,
+.field-body {
+  font-size: var(--type-copy);
+}
+
+/* Dates: larger and consistently accented on About and Teaching. */
+.about-page .news time,
+.teaching-summary strong,
+.institution-head p {
+  color: var(--date-accent);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+}
+
+/* Keep the current-position labels readable without crowding the date column. */
+.about-page .news time {
+  white-space: nowrap;
+}
+
+/* Academic-profile links: flat, clearly interactive, and consistent. */
+.about-profile-links a,
+.publication-profile-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.48rem 0.1rem;
+  color: var(--viridian);
+  font-size: var(--type-meta);
+  font-weight: 500;
+  line-height: 1.35;
+  border-bottom: 1px solid rgba(46, 106, 87, 0.42);
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    padding-left 0.15s ease;
+}
+
+.about-profile-links a::after,
+.publication-profile-links a::after {
+  content: "↗";
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 0.85em;
+  line-height: 1;
+  opacity: 0.72;
+}
+
+.about-profile-links a:hover,
+.publication-profile-links a:hover {
+  color: #214f41;
+  border-bottom-color: #214f41;
+  padding-left: 0.28rem;
+}
+
+.about-profile-links a:focus-visible,
+.publication-profile-links a:focus-visible {
+  outline-color: var(--date-accent);
+}
+
+/* The About profile heading should align with the Publications profile heading. */
+.about-page .profiles-heading {
+  margin-top: 1.25rem;
+}
+
+
+/* Contact page: make Academic profile links clearly clickable. */
+.contact-profile-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.48rem 0.1rem;
+  color: var(--viridian);
+  font-size: var(--type-meta);
+  font-weight: 500;
+  line-height: 1.35;
+  border-bottom: 1px solid rgba(46, 106, 87, 0.42);
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    padding-left 0.15s ease;
+}
+
+.contact-profile-links a::after {
+  content: "↗";
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 0.85em;
+  line-height: 1;
+  opacity: 0.72;
+}
+
+.contact-profile-links a:hover {
+  color: #214f41;
+  border-bottom-color: #214f41;
+  padding-left: 0.28rem;
+}
+
+.contact-profile-links a:focus-visible {
+  outline-color: var(--date-accent);
+}
+
+
+/* ============================================================
+   Prominent left-side section titles
+   ============================================================ */
+
+.primary-section-title,
+.research-rail-nav .primary-section-link {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--viridian);
+}
+
+/* About and Contact labels retain their right alignment on wide screens. */
+.primary-section-title {
+  padding-top: 0.08rem;
+}
+
+/* Research main links use the same visual language. */
+.research-rail-nav .primary-section-link {
+  padding-top: 0.72rem;
+  padding-bottom: 0.72rem;
+}
+
+.research-rail-nav .primary-section-link:hover,
+.research-rail-nav .primary-section-link.current {
+  color: #214f41;
+}
+
+/* Keep the labels readable when the layout collapses on smaller screens. */
+@media (max-width: 46rem) {
+  .primary-section-title {
+    font-size: 1.02rem;
+  }
+}
+
+
+/* Restore the original monospaced label font while retaining prominence. */
+.primary-section-title,
+.research-rail-nav .primary-section-link {
+  font-family: var(--mono) !important;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.07em;
+  text-transform: none;
+  color: var(--viridian);
+}
+
+.research-rail-nav .primary-section-link {
+  padding-top: 0.68rem;
+  padding-bottom: 0.68rem;
+}
+
+.primary-section-title {
+  padding-top: 0.12rem;
+}
+
+
+/* ============================================================
+   Responsive refinements for tablets and phones
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+a,
+p,
+li,
+span,
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- tablets and small laptops ---------- */
+@media (max-width: 64rem) {
+  .wrap {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .topbar .wrap {
+    gap: 0.8rem 1.2rem;
+  }
+
+  .row {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+
+  .margin.year {
+    font-size: 1.48rem;
+  }
+
+  /* Rails move above the content and become compact navigation panels. */
+  .about-layout,
+  .teaching-layout,
+  .research-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 82rem;
+  }
+
+  .rail-inner,
+  .teaching-rail-inner,
+  .research-rail-inner {
+    position: static;
+    top: auto;
+    padding-top: 2.3rem;
+  }
+
+  .about-body > main,
+  .teaching-body,
+  .research-body > main {
+    padding-top: 2.2rem;
+  }
+
+  .rail-nav,
+  .teaching-rail-nav,
+  .research-rail-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.4rem;
+    align-items: start;
+  }
+
+  .rail-nav li,
+  .teaching-rail-nav li,
+  .research-rail-nav li {
+    min-width: 0;
+  }
+
+  .teaching-rail-nav .rail-group,
+  .research-rail-nav .rail-group {
+    grid-column: 1 / -1;
+  }
+
+  .teaching-subnav,
+  .research-subnav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1.3rem;
+    padding-left: 0.7rem;
+  }
+
+  .profile-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-profile-links,
+  .publication-profile-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-map iframe {
+    min-height: 330px;
+    height: 330px;
+  }
+
+  .topic-intro {
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    gap: 1.25rem;
+  }
+
+  .topic-media img {
+    max-width: 13rem;
+  }
+
+  .course-detail {
+    grid-template-columns: minmax(0, 1fr) 9rem;
+    gap: 1.4rem;
+  }
+
+  .textbook-media {
+    width: 9rem;
+    height: 13.25rem;
+  }
+
+  .teaching-summary div {
+    gap: 1.25rem;
+  }
+
+  .institution-head {
+    gap: 1rem;
+  }
+}
+
+/* ---------- phones and narrow tablets ---------- */
+@media (max-width: 48rem) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .topbar {
+    position: sticky;
+  }
+
+  .topbar .wrap {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .mark {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin-bottom: 0.55rem;
+    font-size: 1rem;
+  }
+
+  .topnav {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 0.25rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .topnav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.12rem 0 0.25rem;
+  }
+
+  .about-layout,
+  .teaching-layout,
+  .research-layout {
+    display: block;
+  }
+
+  .rail-inner,
+  .teaching-rail-inner,
+  .research-rail-inner {
+    padding-top: 1.7rem;
+  }
+
+  .rail-heading {
+    margin-bottom: 0.55rem;
+  }
+
+  .rail-nav,
+  .teaching-rail-nav,
+  .research-rail-nav {
+    display: block;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .rail-nav a,
+  .teaching-rail-nav a,
+  .research-rail-nav a {
+    min-height: 2.65rem;
+    align-items: center;
+    padding-top: 0.62rem;
+    padding-bottom: 0.62rem;
+  }
+
+  .teaching-subnav,
+  .research-subnav {
+    display: block;
+    margin-bottom: 0.7rem;
+    padding-left: 0.55rem;
+  }
+
+  .teaching-subnav a,
+  .research-subnav a {
+    min-height: 2.35rem;
+    font-size: 0.78rem;
+    padding-top: 0.48rem;
+    padding-bottom: 0.48rem;
+  }
+
+  .about-layout .portrait {
+    width: 5.5rem;
+  }
+
+  .rail-name {
+    font-size: 1.65rem;
+  }
+
+  .about-body > main,
+  .teaching-body,
+  .research-body > main {
+    padding-top: 1.8rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    padding-top: 2.2rem;
+  }
+
+  .row + .row {
+    margin-top: 0;
+  }
+
+  .margin,
+  .primary-section-title {
+    text-align: left;
+    padding-top: 0;
+  }
+
+  .margin.year {
+    font-size: 1.32rem;
+    color: var(--date-accent);
+    margin-bottom: 0.15rem;
+  }
+
+  .hero,
+  .teaching-page-title {
+    padding-top: 0;
+  }
+
+  .hero-name,
+  .teaching-page-title {
+    font-size: clamp(2rem, 11vw, 2.7rem);
+  }
+
+  h2,
+  .cat-head,
+  .teaching-section > h2 {
+    font-size: 1.34rem;
+  }
+
+  h3,
+  .topic-title,
+  .institution-head h3 {
+    font-size: 1.14rem;
+  }
+
+  .lede {
+    font-size: 1rem;
+  }
+
+  .interest-list {
+    columns: 1;
+    padding-left: 1.05rem;
+  }
+
+  .research-topic {
+    padding-top: 1.45rem;
+    padding-bottom: 1.45rem;
+  }
+
+  .topic-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .topic-intro {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .topic-media {
+    justify-content: flex-start;
+  }
+
+  .topic-media img {
+    width: min(100%, 21rem);
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .topic-publications {
+    margin-top: 1rem;
+  }
+
+  .research-paper-list,
+  .publication-paper-list {
+    padding-left: 1.05rem;
+  }
+
+  .research-paper-list li,
+  .publication-paper-list li {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .research-paper-links {
+    display: block;
+    white-space: normal;
+    margin-top: 0.25rem;
+  }
+
+  .research-paper-links a {
+    display: inline-block;
+    margin: 0 0.55rem 0.2rem 0;
+    padding: 0.1rem 0;
+  }
+
+  .publications-page .about-body,
+  .publications-page .rail-inner {
+    text-align: left;
+  }
+
+  .publications-page .row.cat {
+    margin-top: 1.2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .publications-page .row.cat .column {
+    padding: 0.72rem 0.85rem !important;
+  }
+
+  .profile-links,
+  .about-profile-links,
+  .publication-profile-links,
+  .contact-profile-links {
+    grid-template-columns: 1fr;
+  }
+
+  .news li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .about-page .news time {
+    white-space: normal;
+  }
+
+  .contact-split {
+    padding-top: 2rem;
+  }
+
+  .contact-map iframe {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .contact-profile-links {
+    max-width: none;
+  }
+
+  .teaching-section {
+    padding-bottom: 2.7rem;
+  }
+
+  .teaching-section + .teaching-section {
+    padding-top: 2.4rem;
+  }
+
+  .teaching-section > h2 {
+    padding: 0.72rem 0.85rem !important;
+  }
+
+  .teaching-summary {
+    margin: 1.2rem 0 2rem;
+  }
+
+  .teaching-summary div {
+    display: block;
+    padding: 0.72rem 0;
+  }
+
+  .teaching-summary strong {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+  }
+
+  .institution {
+    margin-bottom: 2.7rem;
+  }
+
+  .institution-head {
+    display: block;
+    padding: 0.75rem 0.8rem;
+  }
+
+  .institution-head p {
+    margin-top: 0.25rem;
+    white-space: normal;
+  }
+
+  .course-detail,
+  .course-detail.no-textbook {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.35rem 0;
+  }
+
+  .course-copy p {
+    text-align: left;
+  }
+
+  .textbook-media {
+    width: 8.5rem;
+    height: 12.5rem;
+    margin-top: 0.15rem;
+  }
+
+  .foot {
+    padding-top: 1.35rem;
+    padding-bottom: 1.8rem;
+  }
+
+  .foot .wrap {
+    display: block;
+  }
+
+  .foot .wrap span {
+    display: block;
+  }
+
+  .foot .wrap span + span {
+    margin-top: 0.45rem;
+  }
+}
+
+/* ---------- very narrow phones ---------- */
+@media (max-width: 24rem) {
+  .wrap {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .topnav {
+    gap: 0.8rem;
+    font-size: 0.68rem;
+  }
+
+  .mark {
+    font-size: 0.94rem;
+  }
+
+  .profile-links a,
+  .about-profile-links a,
+  .publication-profile-links a,
+  .contact-profile-links a {
+    font-size: 0.72rem;
+  }
+
+  .textbook-media {
+    width: 7.75rem;
+    height: 11.5rem;
+  }
+}
+
+/* Print-friendly fallback. */
+@media print {
+  .topbar,
+  .rail,
+  .teaching-rail,
+  .research-rail {
+    display: none !important;
+  }
+
+  .about-layout,
+  .teaching-layout,
+  .research-layout,
+  .row,
+  .course-detail,
+  .topic-intro {
+    display: block !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+  }
+}
