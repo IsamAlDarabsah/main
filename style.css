@@ -2276,3 +2276,155 @@ h4 {
     outline-offset: 2px;
   }
 }
+
+
+/* ============================================================
+   Teaching page — student supervision
+   ============================================================ */
+
+.student-group {
+  padding-top: 1.8rem;
+  scroll-margin-top: 8rem;
+}
+
+.student-group + .student-group {
+  margin-top: 0.4rem;
+}
+
+.student-group-title {
+  margin: 0 0 0.85rem;
+  padding: 0.58rem 0.72rem;
+  background: rgba(46, 106, 87, 0.09);
+  border-left: 3px solid var(--viridian);
+  color: var(--viridian);
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.student-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.student-list li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.student-list li:first-child {
+  padding-top: 0.2rem;
+}
+
+.student-entry {
+  margin: 0;
+  font-size: var(--type-copy);
+  line-height: 1.65;
+  text-align: justify;
+}
+
+.student-name {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.student-name-link,
+.student-resource-link {
+  color: var(--viridian);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.student-name-link::after,
+.student-resource-link[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.78em;
+  text-decoration: none;
+}
+
+.student-name-link:hover,
+.student-resource-link:hover {
+  color: #214f41;
+  text-decoration-thickness: 2px;
+}
+
+.student-supervision-note {
+  margin: 1.5rem 0 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--type-copy);
+  line-height: 1.65;
+  text-align: justify;
+}
+
+.student-subnav {
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 48rem) {
+  .student-group {
+    padding-top: 1.35rem;
+    scroll-margin-top: calc(
+      var(--mobile-topbar-height, 5.4rem) + 4.2rem
+    );
+  }
+
+  .student-group-title {
+    font-size: 1.08rem;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .student-entry,
+  .student-supervision-note {
+    text-align: left;
+    font-size: 0.94rem;
+  }
+
+  .student-list li {
+    padding: 0.78rem 0;
+  }
+}
+
+
+/* ============================================================
+   Dedicated Students page
+   ============================================================ */
+
+.students-page .students-page-section {
+  padding-top: 3.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.students-page .students-page-section > .teaching-page-title {
+  margin-bottom: 1rem;
+}
+
+.students-page .student-group:first-of-type {
+  padding-top: 1rem;
+}
+
+.students-page .student-supervision-note {
+  max-width: 70rem;
+}
+
+@media (max-width: 48rem) {
+  .students-page .teaching-rail {
+    display: none;
+  }
+
+  .students-page .students-page-section {
+    padding-top: 1.8rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .students-page #students,
+  .students-page #graduate-students,
+  .students-page #undergraduate-researchers {
+    scroll-margin-top: calc(
+      var(--mobile-topbar-height, 5.4rem) + 4.2rem
+    ) !important;
+  }
+}
