@@ -2428,3 +2428,38 @@ h4 {
     ) !important;
   }
 }
+
+
+/* ============================================================
+   Teaching page — Courses Taught subsection
+   ============================================================ */
+
+.courses-taught-heading {
+  margin: 2.2rem 0 1rem;
+  padding: 0.72rem 0.85rem;
+  background: rgba(46, 106, 87, 0.09);
+  border-left: 3px solid var(--viridian);
+  color: var(--viridian);
+  font-family: var(--serif);
+  font-size: 1.24rem;
+  font-weight: 600;
+  line-height: 1.3;
+  scroll-margin-top: 8rem;
+}
+
+@media (max-width: 48rem) {
+  .courses-taught-heading {
+    margin-top: 1.7rem;
+    padding: 0.65rem 0.75rem;
+    font-size: 1.12rem;
+    scroll-margin-top: calc(
+      var(--mobile-topbar-height, 5.4rem) + 4.2rem
+    );
+  }
+}
+
+
+/* Keep Courses Taught text consistent with the other section headings. */
+.courses-taught-heading {
+  color: var(--ink);
+}
