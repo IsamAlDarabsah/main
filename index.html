@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=IBM+Plex+Serif:wght@400;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=35" rel="stylesheet"/>
+<link href="style.css?v=36" rel="stylesheet"/>
 <script>
   window.MathJax = {
     tex: { inlineMath: [['$','$'], ['\\(','\\)']] },
@@ -43,7 +43,7 @@
 <a href="contact.html">Contact</a>
 </nav>
 </div>
-</header><nav aria-label="On this page" class="mobile-page-nav"><div class="mobile-page-nav-inner"><button aria-controls="mobile-page-menu-about" aria-expanded="false" class="mobile-page-nav-toggle" type="button"><span class="mobile-page-nav-prefix">On this page:</span><span class="mobile-page-nav-current">About</span><span aria-hidden="true" class="mobile-page-nav-icon">⌄</span></button><div class="mobile-page-nav-menu" hidden="" id="mobile-page-menu-about"><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a></div></div></nav>
+</header><nav aria-label="On this page" class="mobile-page-nav"><div class="mobile-page-nav-inner"><details class="mobile-page-nav-details"><summary class="mobile-page-nav-summary"><span class="mobile-page-nav-prefix">On this page:</span><span class="mobile-page-nav-current">About</span><span aria-hidden="true" class="mobile-page-nav-icon">⌄</span></summary><div class="mobile-page-nav-menu"><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a></div></details></div></nav>
 <div class="wrap about-layout">
 <div class="rail">
 <div class="rail-inner">
@@ -158,5 +158,94 @@
 <span>Department of Mathematics and Statistics · Jordan University of Science and Technology</span>
 </div>
 </footer>
-<script src="mobile-page-nav.js"></script></body>
+<script>
+(function () {
+  "use strict";
+
+  var details = document.querySelector(".mobile-page-nav-details");
+  if (!details) return;
+
+  var topbar = document.querySelector(".topbar");
+  var nav = document.querySelector(".mobile-page-nav");
+  var currentLabel = details.querySelector(".mobile-page-nav-current");
+  var links = Array.prototype.slice.call(
+    details.querySelectorAll('.mobile-page-nav-menu a[href^="#"]')
+  );
+
+  function syncTopbarHeight() {
+    if (!topbar) return;
+    document.documentElement.style.setProperty(
+      "--mobile-topbar-height",
+      topbar.getBoundingClientRect().height + "px"
+    );
+  }
+
+  links.forEach(function (link) {
+    link.addEventListener("click", function () {
+      details.removeAttribute("open");
+    });
+  });
+
+  var targets = links.map(function (link) {
+    var target = document.querySelector(link.getAttribute("href"));
+    return target ? { link: link, target: target } : null;
+  }).filter(Boolean);
+
+  function updateCurrentSection() {
+    if (!targets.length) return;
+
+    var threshold =
+      (topbar ? topbar.getBoundingClientRect().height : 0) +
+      (nav ? nav.getBoundingClientRect().height : 0) +
+      18;
+
+    var current = targets[0];
+    var bestTop = -Infinity;
+
+    targets.forEach(function (item) {
+      var top = item.target.getBoundingClientRect().top;
+      if (top <= threshold && top > bestTop) {
+        current = item;
+        bestTop = top;
+      }
+    });
+
+    links.forEach(function (link) {
+      link.removeAttribute("aria-current");
+    });
+    current.link.setAttribute("aria-current", "location");
+    currentLabel.textContent = current.link.textContent.trim();
+  }
+
+  document.addEventListener("click", function (event) {
+    if (details.hasAttribute("open") && !details.contains(event.target)) {
+      details.removeAttribute("open");
+    }
+  });
+
+  syncTopbarHeight();
+  updateCurrentSection();
+
+  window.addEventListener("resize", function () {
+    syncTopbarHeight();
+    updateCurrentSection();
+  });
+
+  window.addEventListener("orientationchange", function () {
+    setTimeout(function () {
+      syncTopbarHeight();
+      updateCurrentSection();
+    }, 150);
+  });
+
+  window.addEventListener("scroll", updateCurrentSection, { passive: true });
+
+  if ("ResizeObserver" in window && topbar) {
+    new ResizeObserver(function () {
+      syncTopbarHeight();
+      updateCurrentSection();
+    }).observe(topbar);
+  }
+})();
+</script></body>
 </html>

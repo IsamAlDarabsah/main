@@ -2221,3 +2221,58 @@ h4 {
     font-size: 0.76rem;
   }
 }
+
+
+/* ============================================================
+   Reliable native mobile "On this page" dropdown
+   ============================================================ */
+
+@media (max-width: 48rem) {
+  .mobile-page-nav-details {
+    width: 100%;
+  }
+
+  .mobile-page-nav-summary {
+    width: 100%;
+    min-height: 3.1rem;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.62rem 0;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .mobile-page-nav-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-page-nav-summary::marker {
+    content: "";
+  }
+
+  .mobile-page-nav-details[open] .mobile-page-nav-icon {
+    transform: rotate(180deg);
+  }
+
+  .mobile-page-nav-icon {
+    transition: transform 0.15s ease;
+  }
+
+  .mobile-page-nav-details:not([open]) .mobile-page-nav-menu {
+    display: none;
+  }
+
+  .mobile-page-nav-details[open] .mobile-page-nav-menu {
+    display: block;
+  }
+
+  .mobile-page-nav-summary:focus-visible {
+    outline: 2px solid var(--viridian);
+    outline-offset: 2px;
+  }
+}
