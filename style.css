@@ -2527,3 +2527,342 @@ h4 {
     font-size: 1.34rem;
   }
 }
+
+
+/* ============================================================
+   Students — JUST thesis template on Overleaf
+   ============================================================ */
+
+.thesis-template-card {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.45rem 0 0.4rem;
+  padding: 1rem 1.1rem;
+  background: rgba(46, 106, 87, 0.055);
+  border: 1px solid rgba(46, 106, 87, 0.20);
+  border-left: 3px solid var(--viridian);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.thesis-template-card:hover {
+  background: rgba(46, 106, 87, 0.09);
+  border-color: rgba(46, 106, 87, 0.38);
+  transform: translateY(-1px);
+}
+
+.thesis-template-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.thesis-template-logo img {
+  display: block;
+  width: 2.65rem;
+  height: 2.65rem;
+  object-fit: contain;
+}
+
+.thesis-template-content {
+  display: block;
+  min-width: 0;
+}
+
+.thesis-template-eyebrow {
+  display: block;
+  margin-bottom: 0.18rem;
+  font-family: var(--mono);
+  font-size: 0.69rem;
+  font-weight: 500;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  color: var(--viridian);
+}
+
+.thesis-template-title {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.thesis-template-meta {
+  display: block;
+  margin-top: 0.22rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.thesis-template-cta {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--viridian);
+}
+
+@media (max-width: 48rem) {
+  .thesis-template-card {
+    grid-template-columns: 2.8rem minmax(0, 1fr);
+    gap: 0.85rem;
+    padding: 0.9rem;
+  }
+
+  .thesis-template-logo {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .thesis-template-logo img {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .thesis-template-title {
+    font-size: 0.96rem;
+  }
+
+  .thesis-template-cta {
+    grid-column: 2;
+    margin-top: -0.25rem;
+  }
+}
+
+
+/* ============================================================
+   About — Academic institutions logo grid
+   ============================================================ */
+
+.about-page .institutions-heading {
+  margin-top: 1.55rem;
+  margin-bottom: 0.7rem;
+}
+
+.academic-institutions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.62rem;
+  padding-bottom: 0.25rem;
+}
+
+.institution-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.55rem;
+  padding: 0.38rem;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(46,106,87,.18);
+  text-decoration: none;
+  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.institution-logo-link:hover,
+.institution-logo-link:focus-visible {
+  border-color: rgba(46,106,87,.48);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(28,45,39,.06);
+}
+
+.institution-logo-link img {
+  display: block;
+  width: 100%;
+  max-width: 8.6rem;
+  height: 3.6rem;
+  object-fit: contain;
+}
+
+.academic-institutions .institution-logo-link:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.academic-institutions .institution-logo-link:last-child:nth-child(odd) img {
+  max-width: 9.4rem;
+}
+
+@media (max-width: 48rem) {
+  .about-page .institutions-heading {
+    margin-top: 1.35rem;
+  }
+
+  .academic-institutions {
+    max-width: 28rem;
+    gap: 0.7rem;
+  }
+
+  .institution-logo-link {
+    min-height: 4.8rem;
+  }
+}
+
+
+/* ============================================================
+   About page — academic institution logos (web PNGs, no boxes)
+   ============================================================ */
+
+.academic-institutions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem 1rem;
+  align-items: center;
+  padding-bottom: 0.1rem;
+}
+
+.institution-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-decoration: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.institution-logo-link:hover,
+.institution-logo-link:focus-visible {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.institution-logo-link img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 4.5rem;
+  object-fit: contain;
+}
+
+.academic-institutions .institution-logo-link:nth-child(1) img {
+  max-height: 4.35rem;
+}
+
+.academic-institutions .institution-logo-link:nth-child(2) img {
+  max-height: 4.6rem;
+}
+
+.academic-institutions .institution-logo-link:nth-child(3) img,
+.academic-institutions .institution-logo-link:nth-child(4) img {
+  max-height: 4.1rem;
+}
+
+.academic-institutions .institution-logo-link:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.academic-institutions .institution-logo-link:last-child:nth-child(odd) img {
+  max-height: 6.5rem;
+}
+
+@media (max-width: 48rem) {
+  .academic-institutions {
+    max-width: 28rem;
+    gap: 0.7rem 0.9rem;
+  }
+
+  .institution-logo-link img {
+    max-height: 4.1rem;
+  }
+
+  .academic-institutions .institution-logo-link:last-child:nth-child(odd) img {
+    max-height: 6rem;
+  }
+}
+
+
+/* ============================================================
+   About page — uploaded university logos
+   ============================================================ */
+
+.academic-institutions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+  align-items: center;
+}
+
+.institution-logo-link {
+  min-height: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.institution-logo-link:hover,
+.institution-logo-link:focus-visible {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.institution-logo-link img {
+  display: block;
+  width: 100%;
+  height: 5.1rem;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* Balance the visual size of the different logo shapes. */
+.academic-institutions .institution-logo-link:nth-child(1) img {
+  height: 5.0rem;
+}
+
+.academic-institutions .institution-logo-link:nth-child(2) img {
+  height: 4.7rem;
+}
+
+.academic-institutions .institution-logo-link:nth-child(3) img {
+  height: 4.6rem;
+}
+
+.academic-institutions .institution-logo-link:nth-child(4) img {
+  height: 4.5rem;
+}
+
+.academic-institutions .institution-logo-link:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 58%;
+}
+
+.academic-institutions .institution-logo-link:last-child:nth-child(odd) img {
+  height: 6.2rem;
+  width: 100%;
+}
+
+@media (max-width: 48rem) {
+  .academic-institutions {
+    gap: 0.8rem 0.9rem;
+  }
+
+  .institution-logo-link img {
+    height: 4.5rem;
+  }
+
+  .academic-institutions .institution-logo-link:last-child:nth-child(odd) {
+    width: 55%;
+  }
+
+  .academic-institutions .institution-logo-link:last-child:nth-child(odd) img {
+    height: 5.5rem;
+  }
+}
